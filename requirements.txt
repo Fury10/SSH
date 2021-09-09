@@ -1,1 +1,3 @@
-remember to readd pip modules
+ssh-menu==2.0.5
+bullet==2.2.0
+pyperclip==1.8.2

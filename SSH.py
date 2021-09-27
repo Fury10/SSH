@@ -19,6 +19,7 @@ credits = '''
 '''
 print(credits)
 
+
 # Ensures Linux System
 import platform
 system = platform.system()
@@ -45,6 +46,9 @@ import re # used for validation
 import pyperclip # used for clipboard copying
 from bullet import Bullet # pretty menu
 from bullet import colors # colours for bullet
+
+print('Please Run: Sudo pip install ssh-menu')
+
 
 # Selects SSH Mode To Use
 Modes = Bullet(

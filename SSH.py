@@ -1,21 +1,11 @@
-# pip install -r requirements.txt
-# ^ Run Above If Having Erros
 credits = '''
 
-███████╗███████╗██╗  ██╗                                
-██╔════╝██╔════╝██║  ██║                                
-███████╗███████╗███████║                                
-╚════██║╚════██║██╔══██║                                
-███████║███████║██║  ██║                                
-╚══════╝╚══════╝╚═╝  ╚═╝                                
-                                                        
-██████╗ ██╗   ██╗    ███╗   ██╗ ██████╗  █████╗ ██╗  ██╗
-██╔══██╗╚██╗ ██╔╝    ████╗  ██║██╔═══██╗██╔══██╗██║  ██║
-██████╔╝ ╚████╔╝     ██╔██╗ ██║██║   ██║███████║███████║
-██╔══██╗  ╚██╔╝      ██║╚██╗██║██║   ██║██╔══██║██╔══██║
-██████╔╝   ██║       ██║ ╚████║╚██████╔╝██║  ██║██║  ██║
-╚═════╝    ╚═╝       ╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-                                   
+███████╗███████╗██╗  ██╗
+██╔════╝██╔════╝██║  ██║
+███████╗███████╗███████║
+╚════██║╚════██║██╔══██║
+███████║███████║██║  ██║
+╚══════╝╚══════╝╚═╝  ╚═╝
 '''
 print(credits)
 
@@ -24,7 +14,7 @@ import platform
 system = platform.system()
 
 if system != 'Linux':
-   print('You Are Currently Using The Linux Script Of SSH.\nSwap To Your OSes Script For It To Work')
+   print('You Are Currently Using The Linux Script Of SSH.\n Please check for any new updates as currently Only Linux Is supported')
    exit()
 
 # Checks If Packages Are Installed
@@ -197,7 +187,7 @@ def genKey():
          background_on_switch=colors.background['black'],
          pad_right = 5
         )
- 
+
     keybit = bits.launch() #starts bits and outputs as variable
     print('\nYou have chosen: ', keybit,' Bits',sep='')
 
@@ -227,7 +217,7 @@ def saveNewProfile():
     profileUser = input('Enter Username For New Profile: ')
     profilePort = input('Enter Port For New Profile: ')
     profileKey = input('Enter Private Key Name For New Profile: ')
-    
+
     Line1 = ['Host ',profileName]
     fLine1 = ''.join(Line1)
 
@@ -242,7 +232,7 @@ def saveNewProfile():
 
     Line5 = ['    IdentityFile ',profileKey]
     fLine5 = ''.join(Line5)
-    
+
     if profileKey == '':
         Line5 = ''
         fLine5 = ''
@@ -250,9 +240,9 @@ def saveNewProfile():
     userpath = os.path.expanduser('~') # works out homepath
 
     sshconfig = [userpath,'/.ssh/config']
-    
+
     fsshconfig = ''.join(sshconfig)
-    
+
     append1 = open(fsshconfig, 'at') #
     append1.write(fLine1)
     append1.close()
@@ -260,11 +250,11 @@ def saveNewProfile():
     append1 = open(fsshconfig, 'at')
     append1.write('\n'+fLine2)
     append1.close()
-    
+
     append1 = open(fsshconfig, 'at')
     append1.write('\n'+fLine3)
     append1.close()
-    
+
     append1 = open(fsshconfig, 'at')
     append1.write('\n'+fLine4)
     append1.close()
@@ -297,13 +287,13 @@ def searchy():
     os.system(fcommand)
 
     newssh = input('\nEnter Profile Name Exactly Here: ')
-    
+
     newSSH = ['ssh ',newssh]
 
     fNewSSH = ''.join(newSSH)
-    
+
     print('\nStarting SSH Connection')
-    
+
     os.system(fNewSSH)
 
 ############################################################
@@ -327,11 +317,3 @@ if sshMode == 'Open Profiles':
 
 if sshMode == 'Generate SSH Keys':
     genKey()
-
-## To Do ##
-# Add Color To Text
-# Allow Searching Within Open Profiles Rather Than 'Search Profiles'
-# Clean Code Up
-# Put On Github
-
-
